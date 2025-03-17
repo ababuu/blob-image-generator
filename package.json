@@ -1,18 +1,26 @@
 {
   "name": "blob-image-generator",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run build:pkg",
+    "build:pkg": "vite build --config vite.pkg.config.js",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
     "prop-types": "^15.8.1"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
